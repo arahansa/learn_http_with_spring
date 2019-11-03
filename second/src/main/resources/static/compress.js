@@ -13,12 +13,8 @@ const brotliSettings = {
 
 fs.readdirSync('./css').forEach(file => {
     if (file.endsWith('.js') || file.endsWith('.css') || file.endsWith('.html')) {
-    console.log('file :', path.resolve(__dirname,'./css/' + file))
-    const buffer = fs.readFileSync(path.resolve(__dirname,'./css/' + file))
-    console.log('buffer :', buffer)
-    const result = brotli.compress(buffer, brotliSettings);
-
-    console.log('result :', result)
-    fs.writeFileSync('./css/' + file + '.br', result);
-}
+        const buffer = fs.readFileSync(path.resolve(__dirname, './css/' + file))
+        const result = brotli.compress(buffer, brotliSettings);
+        fs.writeFileSync('./css/' + file + '.br', result);
+    }
 });

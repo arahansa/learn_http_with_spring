@@ -117,7 +117,6 @@ public class CustomEncodedResourceResolver extends AbstractResourceResolver {
                     Resource encoded = new CustomEncodedResourceResolver.EncodedResource(resource, coding, extension);
                     logger.info("encoded :"+encoded+", exists():"+encoded.exists());
                     if (encoded.exists()) {
-
                         return encoded;
                     }
                 }
@@ -128,7 +127,6 @@ public class CustomEncodedResourceResolver extends AbstractResourceResolver {
                 }
             }
         }
-
         return resource;
     }
 
