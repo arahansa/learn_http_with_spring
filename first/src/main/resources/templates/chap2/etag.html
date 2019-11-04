@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>eTag</title>
+</head>
+<body>
+
+주소를 선택하시오?
+
+<select id="province-list"></select>
+
+
+<script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+
+<script>
+
+    $(function(){
+
+        $.get("/chap2/state", data => {
+            console.log('old data :', data)
+            let tmpl
+            Array.from(data).forEach(e=> {tmpl += `<option>${e}</option>`})
+            $("#province-list").html(tmpl)
+        })
+
+        $.get("/chap2/state-nocash", data => {
+            console.log('data :', data)
+
+        })
+
+        $.get("/chap2/state-last-modified", data => {
+            console.log('data :', data)
+
+        })
+    })
+
+
+</script>
+
+</body>
+</html>
