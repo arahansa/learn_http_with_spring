@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>다양한 선택지</title>
+</head>
+<body>
+
+<img src="/img/dudum.png">
+<h1>당신은 오타를 낸 것이 분명해..</h1>
+
+<span th:text="${lang}"></span><span>는 지원하지 않는 언어표현입니다.</span><br>
+<span>다음의 페이지중 하나를 들어가기를 권장합니다.</span><br><br>
+
+<div th:each="lang : ${langs}">
+    <a th:href="@{'/chap2/html.'+${lang.language}}" th:text="${'/chap2/html.'+lang.language}"></a>
+    <span th:text="${lang.displayLanguage}"></span><span>페이지</span>
+    <br>
+</div>
+
+</body>
+</html>

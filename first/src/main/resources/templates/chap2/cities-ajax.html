@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang=""
+    xmlns:th="http://www.thymeleaf.org"
+>
+
+<head>
+    <meta charset="UTF-8">
+    <title>도시목록</title>
+</head>
+<body>
+
+이런 저런 다른 메시지.. 어쩌고 저쩌고..
+
+<h1>API 로 인해 변경될 수 있는 도시목록</h1>
+<div id="target"></div>
+
+<script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+<script  th:inline="javascript">
+    /*<![CDATA[*/
+    const lang = /*[[${lang}]]*/ 'lang';
+    $.get(`/chap2/cities.${lang}`, data => {
+        $("#target").html(Array.from(data).join(","))
+    })
+    /*]]>*/
+</script>
+</body>
+</html>

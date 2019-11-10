@@ -4,6 +4,4 @@ enum class City(val key: String) {
     SEOUL("seoul"),
     INCHOEN("incheon"),
     CHEONGJU("cheongju");
-
-
 }
