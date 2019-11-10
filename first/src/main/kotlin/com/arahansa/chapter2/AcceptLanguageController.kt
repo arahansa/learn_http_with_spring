@@ -45,7 +45,7 @@ class AcceptLanguageController {
     fun citiesHtml(locale: Locale): RedirectView {
         println("display lang : ${locale.language}")
         val redirectView = RedirectView("/chap2/html.${locale.language}")
-        redirectView.setStatusCode(HttpStatus.SEE_OTHER)
+        redirectView.setStatusCode(HttpStatus.TEMPORARY_REDIRECT)
         return redirectView
     }
 
