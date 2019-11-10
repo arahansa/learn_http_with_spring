@@ -1,3 +1,19 @@
 spring:
   messages:
     basename: messages/messages
+  resources:
+    cache:
+      cachecontrol:
+        max-age: 31536000
+
+    chain:
+      strategy:
+        fixed:
+          enabled: true
+          version: 20191110-1
+
+
+#    chain:
+#      strategy:
+#        content:
+#          enabled: true

@@ -1,1 +1,5 @@
 h1{color:red}
+span.blue{
+    color:blue;
+    font-weight: bold;
+}

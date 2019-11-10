@@ -1,6 +1,5 @@
 package com.arahansa.chapter2
 
-import org.apache.tomcat.util.descriptor.LocalResolver
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.MessageSource
 import org.springframework.context.i18n.LocaleContextHolder
@@ -11,9 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.ResponseBody
 import org.springframework.web.context.request.ServletWebRequest
-import org.springframework.web.servlet.LocaleResolver
-import java.awt.HeadlessException
-import java.util.*
 import javax.servlet.http.HttpServletRequest
 
 /**
@@ -42,12 +38,7 @@ class AcceptLanguageController {
     @GetMapping("/cities")
     @ResponseBody
     fun cities(req: HttpServletRequest): ResponseEntity<List<String>> {
-        val headerNames: MutableIterator<String> = req.headerNames.asIterator()
 
-        while(headerNames.hasNext()){
-            val header = headerNames.next()
-            println("Header ${header} , Value : ${req.getHeader(header)}")
-        }
 
         val locale = LocaleContextHolder.getLocale()
         println("locale : "+locale)

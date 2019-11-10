@@ -28,4 +28,9 @@ class EtagViewRenderController {
         model.addAttribute("name", name)
         return "chap2/etagview"
     }
+
+    @GetMapping("/originalview")
+    fun eTagTestNo(webRequest: WebRequest, name:String?, model: Model): String{
+        return "chap2/etagview"
+    }
 }
