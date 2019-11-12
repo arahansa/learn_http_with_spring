@@ -48,6 +48,4 @@ class K6_RedirectController {
         redirectView.setStatusCode(HttpStatus.MOVED_PERMANENTLY)
         return redirectView
     }
-
-
 }

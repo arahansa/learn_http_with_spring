@@ -6,9 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping
 @Controller
 class DefaultController {
 
-
     @GetMapping("/")
-    fun index():String{
+    fun index(): String {
 
         return "index"
     }

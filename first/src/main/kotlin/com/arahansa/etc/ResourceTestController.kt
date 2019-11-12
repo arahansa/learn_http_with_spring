@@ -9,8 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 class ResourceTestController {
 
     @GetMapping("/resource")
-    fun resourceTestPage(): String{
+    fun resourceTestPage(): String {
         return "etc/resource"
     }
-
 }

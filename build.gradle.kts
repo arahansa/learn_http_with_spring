@@ -1,11 +1,21 @@
 import org.springframework.boot.gradle.tasks.bundling.BootJar
 
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        "classpath"(group = "org.jlleitschuh.gradle", name = "ktlint-gradle", version = "9.1.0")
+    }
+}
+
 plugins {
     id("org.jetbrains.kotlin.jvm") version "1.3.21"
     id("org.jetbrains.kotlin.kapt") version "1.3.21"
     id("org.springframework.boot") version "2.1.4.RELEASE" apply false
     id("org.jetbrains.kotlin.plugin.spring") version "1.3.21" apply false
     id("com.gorylenko.gradle-git-properties") version "1.5.1" apply false
+    id("org.jlleitschuh.gradle.ktlint") version "9.1.0"
 }
 
 allprojects {
@@ -14,13 +24,13 @@ allprojects {
     }
 }
 
-
 subprojects {
     apply(plugin = "kotlin") // 요부분을 apply { plugin("kotlin")} -> apply(plugin="kotlin")
     apply(plugin = "kotlin-kapt")
     apply(plugin = "org.springframework.boot")
     apply(plugin = "io.spring.dependency-management")
     apply(plugin = "org.jetbrains.kotlin.plugin.spring")
+    apply(plugin = "org.jlleitschuh.gradle.ktlint")
 
     group = "com.arahansa"
     version = "1.0.0"
@@ -51,7 +61,6 @@ subprojects {
             dependsOn(processResources) // kotlin 에서 ConfigurationProperties
         }
 
-
         compileTestKotlin {
             kotlinOptions {
                 freeCompilerArgs = listOf("-Xjsr305=strict")
@@ -77,4 +86,3 @@ project(":first") {
         compile(project(":common"))
     }
 }
-

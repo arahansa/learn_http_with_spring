@@ -1,5 +1,7 @@
 package com.arahansa.chapter2
 
+import java.time.LocalDateTime
+import java.time.ZoneOffset
 import org.springframework.boot.web.servlet.FilterRegistrationBean
 import org.springframework.context.annotation.Bean
 import org.springframework.http.ResponseEntity
@@ -8,9 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.ResponseBody
 import org.springframework.web.filter.ShallowEtagHeaderFilter
-import java.time.LocalDateTime
-import java.time.ZoneOffset
-
 
 /**
  * 리얼HTTP 책 92 페이지
@@ -32,7 +31,7 @@ class HttpCashController {
     fun noCash(): List<String> {
         val list = ArrayList<String>()
         for (x in 0 until 10000)
-            list.add("아라한사"+x)
+            list.add("아라한사" + x)
         return list
     }
 
@@ -41,7 +40,7 @@ class HttpCashController {
     fun eTag(): ResponseEntity<List<String>> {
         val list = ArrayList<String>()
         for (x in 0 until 10000)
-            list.add("아라한사"+x)
+            list.add("아라한사" + x)
         return ResponseEntity.ok()
                 .eTag(list.hashCode().toString())
                 .body(list)
@@ -52,11 +51,10 @@ class HttpCashController {
     fun lastModified(): ResponseEntity<List<String>> {
         val list = ArrayList<String>()
         for (x in 0 until 10000)
-            list.add("아라한사"+x)
+            list.add("아라한사" + x)
         return ResponseEntity.ok()
                 .lastModified(LocalDateTime.of(2019, 11, 5, 0, 4, 0).toEpochSecond(ZoneOffset.UTC))
                 .body(list)
-
     }
 
     @Bean
