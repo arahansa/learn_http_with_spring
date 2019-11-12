@@ -1,5 +1,8 @@
 package com.arahansa.chapter2
 
+import java.util.Locale
+import javax.servlet.http.HttpServletRequest
+import javax.servlet.http.HttpServletResponse
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.MessageSource
 import org.springframework.context.i18n.LocaleContextHolder
@@ -14,9 +17,6 @@ import org.springframework.web.bind.annotation.ResponseBody
 import org.springframework.web.context.request.WebRequest
 import org.springframework.web.servlet.ModelAndView
 import org.springframework.web.servlet.view.RedirectView
-import java.util.Locale
-import javax.servlet.http.HttpServletRequest
-import javax.servlet.http.HttpServletResponse
 
 /**
  * 참고소스 : https://www.logicbig.com/tutorials/spring-framework/spring-web-mvc/spring-etag-header.html
