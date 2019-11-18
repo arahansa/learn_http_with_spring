@@ -60,7 +60,7 @@ class HttpCashController {
     @Bean
     fun shallowEtagHeaderFilterApply(): FilterRegistrationBean<ShallowEtagHeaderFilter> {
         val filterRegistrationBean = FilterRegistrationBean(ShallowEtagHeaderFilter())
-        filterRegistrationBean.addUrlPatterns("/chap2/**")
+        filterRegistrationBean.addUrlPatterns("/chap2/**", "/practice/**")
         filterRegistrationBean.setName("etagFilter")
         return filterRegistrationBean
     }

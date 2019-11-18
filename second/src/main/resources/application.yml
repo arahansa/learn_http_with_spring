@@ -1,9 +1,18 @@
 # https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html
 server.port: 8090
 
-logging.level.com.arahansa: DEBUG
+logging.level.com.arahansa: INFO
 
 spring:
   resources:
     chain:
       compressed: true
+
+  http:
+      log-request-details: true
+logging.level.org.springframework.web: TRACE
+logging.level.org.thymeleaf.spring5.view: TRACE
+logging.level.org.springframework.web.servlet.view: TRACE
+logging.level.org.thymeleaf: TRACE
+
+# https://stackoverflow.com/questions/53723613/how-to-set-enableloggingrequestdetails-true-in-spring-boot

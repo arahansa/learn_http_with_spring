@@ -86,3 +86,9 @@ project(":first") {
         compile(project(":common"))
     }
 }
+
+project(":second") {
+    dependencies {
+        compile(project(":common"))
+    }
+}
